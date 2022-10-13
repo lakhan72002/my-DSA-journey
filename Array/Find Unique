@@ -1,0 +1,19 @@
+link: https://www.codingninjas.com/codestudio/problems/find-unique_625159?source=youtube&campaign=love_babbar_codestudio1&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio1
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int t,n,i,a[50],ans=0;
+    cin>>t;
+   
+    for(i=0;i<n;i++)
+        cin>>a[i];
+    
+    while(t>0)
+    {
+        for(i=0;i<n;i++)
+            ans=ans^a[i];
+        cout<<
+    }
+}
