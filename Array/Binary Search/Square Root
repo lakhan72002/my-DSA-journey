@@ -1,0 +1,38 @@
+link : https://www.codingninjas.com/codestudio/problems/square-root_893351?source=youtube&campaign=love_babbar_codestudio2&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio2
+
+You are given a positive integer ‘N’. Your task is to find and return its square root. If ‘N’ is not a perfect square, then return the floor value of sqrt(N).
+For example:
+For ‘N’  = 25, return 5 , for ‘N’ = 20 return 4, for ‘N’ = 2 return 1.
+
+Sample Input 1:
+2 (test case)
+4
+6
+Sample Output 1:
+2
+2
+--------------------------------------------
+
+
+#include <bits/stdc++.h> 
+
+int sqrtN(long long int N)
+{
+    unsigned int s=0,e=N;
+    long long int ans=-1,mid=s+(e-s)/2,square;
+    while(s<=e)
+    {
+        square=mid*mid;
+        if(square==N)
+            return mid;
+        else if(square>N)
+            e=mid-1;
+        else
+        {
+            ans=mid;
+            s=mid+1;
+        }
+        mid=s+(e-s)/2;
+    }
+    return ans;
+}
