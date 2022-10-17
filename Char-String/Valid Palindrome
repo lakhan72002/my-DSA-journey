@@ -1,0 +1,60 @@
+https://leetcode.com/problems/valid-palindrome/description/
+
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the 
+same forward and backward. Alphanumeric characters include letters and numbers.
+
+Example 1:
+
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+------------------------------------------------------
+
+class Solution {
+private:
+    bool checkPalindrome(string s){
+    int start = 0;
+    int end = s.size()-1;
+    while(start <= end){
+        if(s[start] != s[end])
+            return false;
+      
+        else{
+             start++;
+             end--;
+        }
+    }
+    return true;
+}
+bool isValid(char ch){
+   if(('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z') || ('0' <= ch && ch <= '9')){
+      return true;
+  }
+  return false;
+}
+char toLowerCase(char ch){
+  if(('a' <= ch && ch <= 'z') || ('0' <= ch && ch <= '9')){
+      return ch;
+  }
+  else{
+      return ch - 'A' + 'a';
+  }
+}
+public:
+    bool isPalindrome(string s) {
+        string temp;
+        //remove unwanted character
+        for(int i=0; i<s.size(); i++)
+        {
+            if(isValid(s[i]))
+                temp.push_back(s[i]);
+        }
+          
+        //convert to Lower case
+        for(int i=0; i<temp.size(); i++)
+            temp[i] = toLowerCase(temp[i]);
+        
+        //check palindrome
+        return checkPalindrome(temp);
+    }
+};
