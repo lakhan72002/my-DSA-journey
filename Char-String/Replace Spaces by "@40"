@@ -1,0 +1,33 @@
+https://www.codingninjas.com/codestudio/problems/replace-spaces_1172172
+
+Sample Input 1:
+2
+Coding Ninjas Is A Coding Platform
+Hello World
+Sample Output 1:
+Coding@40Ninjas@40Is@40A@40Coding@40Platform
+Hello@40World
+------------------------------------------------------------
+
+#include <bits/stdc++.h> 
+string replaceSpaces(string &str){
+	// Write your code here.
+    string ans="";
+    int j=0;
+    for(int i=0; i<str.size(); i++)
+    {
+        if(str[i]==' ')
+        {
+            ans.push_back('@');
+            ans.push_back('4');
+            ans.push_back('0');
+            j+=3;            
+        }
+        else
+        {
+            ans.push_back(str[i]);
+            j++;
+        }            
+    }
+    return ans;
+}
