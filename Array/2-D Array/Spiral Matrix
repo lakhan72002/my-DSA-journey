@@ -1,0 +1,60 @@
+https://leetcode.com/problems/spiral-matrix/description/
+
+Given an m x n matrix, return all elements of the matrix in spiral order.
+
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+
+     -->
+   [[1,2,3],  |
+^   [4,5,6],  | 
+|   [7,8,9]]  V
+      <--
+      
+----------------------------------------------------
+
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        
+        vector<int> ans;
+        int sRow=0,sCol=0,count=0;
+        int eRow=matrix.size();
+        int eCol=matrix[0].size();
+        int total=(eRow)*(eCol); //total elements in matrix
+
+        eRow--;eCol--;
+
+        while(count < total)
+        {
+            for(int i=sCol; i<=eCol && count < total; i++)
+            {
+                ans.push_back(matrix[sRow][i]);
+                count++;
+            }
+            sRow++;
+
+            for(int i=sRow; i<=eRow && count < total; i++)
+            {
+                ans.push_back(matrix[i][eCol]);
+                count++;
+            }
+            eCol--;
+
+            for(int i=eCol; i>=sCol && count < total; i--)
+            {
+                ans.push_back(matrix[eRow][i]);
+                count++;
+            }
+            eRow--;
+
+            for(int i=eRow; i>=sRow && count < total; i--)
+            {
+                ans.push_back(matrix[i][sCol]);
+                count++;
+            }
+            sCol++;
+        }
+        return ans;
+    }
+};
