@@ -8,14 +8,13 @@ input= 50
 output= 2,5,50 (because 2*5*50=500) 
 -------------------------------------------------------------
 
-
 #include <iostream>
 #include<stdio.h>
 using namespace std;
 
 int main()
 {
-    int n=500;
+    int n=500; //input number 
     int a=1,b=1,c=1;
     
     for(int i=2; i*i<=n; i++)
@@ -28,20 +27,19 @@ int main()
     }
     n=n/a;
     
-    for(int i=2; i*i<=n; i++)
+    for(int i=a+1; i*i<=n; i++)
     {
-        if(n%i==0 && i!=a)
+        if(n%i==0)
         {
-            b=i;
-            break;
+            b=i;break;
         }
     }
-    
     c=n/b;
     
-    if(b!=c && a!=c && c!=1 )
-        printf("%d, %d, %d",a,b,c);
+    if(c!=1 && c!=a && c!=b)
+        cout<<a<<","<<b<<","<<c;
     else
-        printf("Not Found");
+        cout<<"Not Found";
+    
     return 0;
 }
