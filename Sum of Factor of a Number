@@ -1,0 +1,26 @@
+#include <iostream>
+#include<stdio.h>
+using namespace std;
+
+int main()
+{
+    int n=10; // find sum of factor of this('n') number.
+    int sum=0;
+    for(int i=1; i*i<=n; i++)
+    {
+        if(n%i==0)
+        {
+            cout<<"factor="<<i<<endl;
+            sum+=i;
+            if( (n/i)!=i )
+            {
+                cout<<"factor="<<n/i<<endl;
+                sum+=(n/i);
+            }
+        }
+    }
+    printf("\nTotal Sum = %d",sum);
+    
+   
+    return 0;
+}
