@@ -1,0 +1,47 @@
+You are given one integer number n. Find three distinct integers a,b,c such that 2≤a,b,c and a⋅b⋅c=n or say that it is impossible to do it.
+If there are several answers, you can print any.
+
+Sample Input : 24
+Output : 2,3,4 (beacuse 2*3*4=24)
+
+input= 50
+output= 2,5,50 (because 2*5*50=500) 
+-------------------------------------------------------------
+
+
+#include <iostream>
+#include<stdio.h>
+using namespace std;
+
+int main()
+{
+    int n=500;
+    int a=1,b=1,c=1;
+    
+    for(int i=2; i*i<=n; i++)
+    {
+        if(n%i==0)
+        {
+            a=i;
+            break;
+        }
+    }
+    n=n/a;
+    
+    for(int i=2; i*i<=n; i++)
+    {
+        if(n%i==0 && i!=a)
+        {
+            b=i;
+            break;
+        }
+    }
+    
+    c=n/b;
+    
+    if(b!=c && a!=c && c!=1 )
+        printf("%d, %d, %d",a,b,c);
+    else
+        printf("Not Found");
+    return 0;
+}
