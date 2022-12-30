@@ -1,0 +1,42 @@
+A pangram is a word or sentence that contains every letter of the alphabet.  For example: the quick brown fox jumps over the lazy dog.
+
+Gopal wants to improve his typing speed for programming contests, and he thinks that if he type pangrams, that is best for it. 
+
+Your task is to help Gopal and given a list of strings made of lowercase letters in the range ascii[a-z], determine whether or not they are pangrams.
+
+Complete the function isPangram() in the editor. The function receives a string to test as parameter and must return true or false based on the fact that, whether the given string is a pangram or not.
+
+Sample Input
+
+4
+pack my box with five dozen liquor jugs
+pack the box with five dozen liquor jugs
+the quick brown fox jumps over the lazy dog
+the quick brown fox jump over the lazy dog
+Sample Output
+
+YES
+NO
+YES
+NO
+Explanation:
+
+Only first and third string is a pangram.
+
+--------------------------------------------
+
+bool isPangram(char* str) {
+  // Write your code here
+  int ans[26]={0};
+  for(int i=0; str[i]!='\0'; i++)
+  {
+      int j= str[i]-'a';
+      ans[j]++;
+  }
+  for(int i=0; i<=25; i++)
+  {
+      if(ans[i]==0)
+         return 0;
+  }
+  return 1;
+}
